@@ -14,4 +14,8 @@ class ArtistViewModel: ViewModel() {
     }
 
     val artist: LiveData<Artist> = artistRepository.artist
+
+    fun getArtist(id: String) {
+        artistRepository.getArtist(id)
+    }
 }
