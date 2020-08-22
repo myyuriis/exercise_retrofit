@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        navController = (nav_host_fragment_container as NavHostFragment).navController
+        navController = (nav_host_fragment as NavHostFragment).navController
 
         NavigationUI.setupWithNavController(bottom_navigation, navController)
 

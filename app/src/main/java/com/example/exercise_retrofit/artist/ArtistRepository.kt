@@ -19,4 +19,18 @@ class ArtistRepository(val artistAPI: ArtistAPI) {
             }
         })
     }
+
+    fun saveArtist(artist: Artist){
+        artistAPI.createArtist(artist).enqueue(object : Callback<Artist>{
+            override fun onFailure(call: Call<Artist>, t: Throwable) {
+                t.printStackTrace()
+            }
+
+            override fun onResponse(call: Call<Artist>, response: Response<Artist>) {
+                if(response.code() == 200){
+                    println("SUCCESS")
+                }
+            }
+        })
+    }
 }

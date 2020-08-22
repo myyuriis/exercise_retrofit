@@ -18,4 +18,8 @@ class ArtistViewModel: ViewModel() {
     fun getArtist(id: String) {
         artistRepository.getArtist(id)
     }
+
+    fun saveArtist(artist: Artist) {
+        artistRepository.saveArtist(artist)
+    }
 }
