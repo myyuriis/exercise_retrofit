@@ -4,8 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class ArtistRepository(val artistAPI: ArtistAPI) {
+class ArtistRepository @Inject constructor(val artistAPI: ArtistAPI) {
 
     val artist: MutableLiveData<Artist> = MutableLiveData<Artist>()
 
@@ -20,7 +21,7 @@ class ArtistRepository(val artistAPI: ArtistAPI) {
         })
     }
 
-    fun saveArtist(artist: Artist){
+    fun saveArtist(artist: Artist) {
         artistAPI.createArtist(artist).enqueue(object : Callback<Artist>{
             override fun onFailure(call: Call<Artist>, t: Throwable) {
                 t.printStackTrace()
@@ -33,4 +34,5 @@ class ArtistRepository(val artistAPI: ArtistAPI) {
             }
         })
     }
+
 }
